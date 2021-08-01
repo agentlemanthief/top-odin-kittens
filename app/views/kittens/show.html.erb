@@ -1,3 +1,7 @@
+<% if flash[:success] %>
+  <%= flash[:success] %>
+<% end %>
+
 <h1>Kitten: <%= @kitten.name %></h1>
 
 <p>Name: <%= @kitten.name %></p>

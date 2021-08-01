@@ -22,6 +22,20 @@ class KittensController < ApplicationController
     end
   end
 
+  def edit
+    @kitten = Kitten.find(params[:id])
+  end
+
+  def update
+    @kitten = Kitten.find(params[:id])
+      if @kitten.update(kitten_params)
+        flash[:success] = "Kitten was successfully updated"
+        redirect_to @kitten
+      else
+        flash[:error] = "Something went wrong"
+        render 'edit'
+      end
+  end
 
   private
 
