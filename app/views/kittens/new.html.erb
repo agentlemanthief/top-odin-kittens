@@ -1,0 +1,11 @@
+<% if flash[:success] %>
+  <%= flash[:success] %>
+<% end %>
+
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+
+<h1>New Kitten</h1>
+
+<%= render 'form' %>
