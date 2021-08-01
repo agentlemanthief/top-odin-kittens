@@ -1,10 +1,25 @@
+<% if flash[:success] %>
+  <%= flash[:success] %>
+<% end %>
+
+<% if flash[:error] %>
+  <%= flash[:error] %>
+<% end %>
+
+
 <h1>Kittens!</h1>
 
+<hr>
+<%= link_to 'Create New Kitten', new_kitten_path %>
+<hr>
+
 <% @kittens.each do |kitten| %>
-  <h2>Kitten <%= kitten.id %></h2>
+  <h3>Kitten <%= kitten.name %></h3>
   <p><strong>Name: </strong><%= kitten.name %></p>
   <p><strong>Age: </strong><%= kitten.age %></p>
   <p><strong>Cuteness: </strong><%= kitten.cuteness %></p>
   <p><strong>Softness: </strong><%= kitten.softness %></p>
+  <%= link_to 'Show', kitten %>
+  <%= link_to 'Delete', kitten_path(kitten), method: :delete, data: { confirm: "Are you sure?" } %>
   <hr>
 <% end %>
